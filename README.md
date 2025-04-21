@@ -1,47 +1,101 @@
-# Astro Starter Kit: Minimal
+# PokéTeam Builder
 
-```sh
-npm create astro@latest -- --template minimal
+**PokéTeam Builder** es una aplicación web full-stack que permite a jugadores y fans de Pokémon crear equipos, comparar estadísticas en tiempo real y planificar estrategias equilibradas.
+
+---
+
+## 🚀 Características
+
+- **Búsqueda de Pokémon** por nombre o ID.
+- **Añadir y eliminar** Pokémon de tu equipo (hasta 6).
+- **Comparación visual de estadísticas** (HP, Ataque, Defensa, Ataque Especial, Defensa Especial, Velocidad).
+- **Animaciones GSAP** para microinteracciones fluidas.
+- **Diseño responsive** inspirado en la Pokédex.
+
+---
+
+## 🛠 Tecnologías
+
+- **Astro** – Generación de sitios estáticos y renderizado híbrido.
+- **Tailwind CSS** – Framework de utilidades para estilos rápidos y consistentes.
+- **PokeAPI** – API pública de datos de Pokémon.
+- **GSAP** – Biblioteca de animaciones profesionales y de alto rendimiento.
+- **Solid.js** – Gestión de estado y lógica de interacción en componentes.
+- **Chart.js** – Visualización de datos en gráficas de barras.
+
+---
+
+## 📂 Estructura del proyecto
+
+```
+src/
+├── components/
+│   ├── PokemonCard.jsx  – Componente de tarjeta de Pokémon.
+│   ├── TeamBuilder.jsx  – Lógica principal y UI del builder.
+│   └── StatChart.jsx    – Componente del gráfico de estadísticas.
+├── pages/
+│   ├── index.astro      – Página principal con el Team Builder.
+│   └── team.astro       – Alias para la ruta `/team`.
+├── scripts/
+│   ├── api.js           – Funciones de fetch a PokeAPI.
+│   └── gsap.js          – Funciones de animación con GSAP.
+└── styles/
+    └── global.css       – Estilos globales y temáticas de Pokédex.
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+---
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📥 Instalación
 
-## 🚀 Project Structure
+Clona el repositorio e instala dependencias:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+git clone https://github.com/klovert/poke-team-builder.git
+cd poke-team-builder
+npm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🏃‍♂️ Desarrollo
 
-Any static assets, like images, can be placed in the `public/` directory.
+Arranca el servidor de desarrollo:
 
-## 🧞 Commands
+```bash
+npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+Abre tu navegador en `http://localhost:3000/team` para acceder al Team Builder.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## 📦 Build de producción
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Genera la versión optimizada y pré-visualiza localmente:
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## 🌐 Despliegue
+
+### GitHub Pages
+
+1. Configura una GitHub Action para publicar la carpeta `dist/`.
+2. Ajusta la rama o carpeta en los settings de GitHub Pages.
+
+### Netlify
+
+1. Conecta tu repo en Netlify.
+2. Build command: `npm run build`.
+3. Publish directory: `dist/`.
+
+---
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo la licencia **MIT**. ¡Disfruta construyendo tu equipo Pokémon!
+
