@@ -1,0 +1,70 @@
+---
+/*
+  Props:
+  - teamStats: array de objetos Pokémon (de la API)
+  - labels: ['hp','attack','defense','special-attack','special-defense','speed']
+*/
+const { teamStats, labels } = Astro.props;
+---
+<div class="p-4">
+  <canvas id="statChart"></canvas>
+</div>
+
+<script type="module">
+  import {
+    Chart,
+    BarController,
+    BarElement,
+    CategoryScale,
+    LinearScale,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+
+  Chart.register(
+    BarController,
+    BarElement,
+    CategoryScale,
+    LinearScale,
+    Title,
+    Tooltip,
+    Legend
+  );
+
+  // espera a que el DOM esté listo
+  window.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('statChart')?.getContext('2d');
+    if (!ctx) return;
+
+    const datasets = teamStats.map((poke, idx) => ({
+      label: poke.name,
+      data: labels.map((lab) => {
+        const statObj = poke.stats.find((s) => s.stat.name === lab);
+        return statObj ? statObj.base_stat : 0;
+      }),
+      // deja que Chart.js elija colores
+    }));
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: { labels, datasets },
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Comparación de estadísticas del equipo',
+          },
+          legend: { position: 'top' },
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 20 },
+          },
+        },
+      },
+    });
+  });
+</script>

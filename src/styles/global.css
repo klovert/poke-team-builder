@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos “Pokédex frame” */
+body {
+  @apply bg-pokebg font-pokedf text-gray-800;
+}
+.pokedex-frame {
+  @apply bg-pokenav border-4 border-black rounded-2xl p-4 shadow-lg;
+}
+
+h3.text-2xl.mb-2{
+  color: #fff;
+}

@@ -1,0 +1,21 @@
+---
+import '../styles/global.css';
+import PokemonCard from '../components/PokemonCard.jsx';
+import { fetchPokemon } from '../scripts/api.js';
+
+// Desestructuramos desde Astro.url
+const { searchParams } = Astro.url;
+const query = searchParams.get('q') ?? 'pikachu';
+
+let pokemon;
+try {
+  pokemon = await fetchPokemon(query.toLowerCase());
+} catch {
+  pokemon = null;
+}
+---
+<main class="pokedex-frame">
+  {pokemon
+    ? <PokemonCard client:load pokemon={pokemon} />
+    : <p>Pokémon no encontrado.</p>}
+</main>
