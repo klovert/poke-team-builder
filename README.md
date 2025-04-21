@@ -80,20 +80,6 @@ npm run preview
 
 ---
 
-## 🌐 Despliegue
-
-### GitHub Pages
-
-1. Configura una GitHub Action para publicar la carpeta `dist/`.
-2. Ajusta la rama o carpeta en los settings de GitHub Pages.
-
-### Netlify
-
-1. Conecta tu repo en Netlify.
-2. Build command: `npm run build`.
-3. Publish directory: `dist/`.
-
----
 
 ## 📄 Licencia
 
